@@ -1,0 +1,142 @@
+//Bhalwinder Singh Dhillon
+//Student ID-1992852
+//MAD-317
+#include <iostream>
+
+#include <string>
+using namespace std;
+
+
+
+int main ()
+
+{
+   
+ string option;
+   
+ string pt,cp="",I="abcdefghijklmnopqrstuvwxyz";
+
+    string decryption1;
+   
+ int sf,i,j,k,l;
+   
+ cout << "Do you want to encrypt or decrypt? \n";
+  
+  cin >>  option;
+
+ 
+   if (option == "encrypt")
+   
+ {
+       
+ cout << "What do you want to encrypt \n";
+       
+ cin>>pt;
+      
+  cout << "Value for Shift: \n";
+    
+    cin>>sf;
+           
+ for( i=0;i<pt.length();i++)
+  
+  {
+      
+  for( j=0;j<26;j++)
+    
+    {
+         
+   if(pt[i]==I[j])
+       
+     {
+            
+    if((j+sf)>25)
+       
+         {
+                  
+  int t=(j+sf-1)-25;
+                  
+  cp+=I[t];
+              
+  }
+                
+           
+     else
+               
+ {
+              
+      cp+=I[j+sf];
+       
+         }
+           
+ }
+  
+       
+ }
+       
+  
+  }
+      
+ cout<<"Encryption : "<<cp;
+
+        
+
+        
+    }
+
+cp="";
+   
+ if (option == "decrypt")
+ 
+   {
+        cout << "What do you want to decrypt \n";
+ 
+       cin>>pt;
+        cout << "Value for Shift: \n";
+    
+    cin>>sf;
+     for( k=0;k<pt.length();k++)
+  
+  {   // cout<<"\ns2 : "<<s2[k];
+        for( l=0;l<26;l++)
+  
+      {
+            if(pt[k]==I[l])
+          
+  {
+                if(l-sf<0)
+              
+  {
+                    int t=(l-sf)-(2*(l-sf));
+     
+               cp+=I[26-t];
+    
+            }
+             
+   else
+              
+  {
+                 
+   cp+=I[l-sf];
+         
+       }
+                
+               
+                                 
+
+            }
+           
+ 
+        }
+  
+  }
+  
+  cout<<"Decryption : "<<cp;
+
+ 
+ 
+ 
+   }
+   
+ return 0;
+
+}
